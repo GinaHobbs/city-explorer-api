@@ -27,4 +27,5 @@ app.get('/weather', async (req, res) => {
       return newObj;
     })
     res.status(200).send(data);
+    
 })
