@@ -7,6 +7,7 @@ const cors = require('cors');
 const weatherData = require('./data/weather.json');
 const Forecast = require('./Forecast.js');
 const axios = require('axios')
+const Movie = require('./Movie.js')
 
 dotenv.config();
 app.use(cors());
@@ -44,7 +45,11 @@ app.get('/movies', async (req,res) => {
   try{
     const result = await axios.get(url)
     console.log(result.data)
-    res.status(200).send(result.data)
+    let data = result.data.results.map(movie => {
+      let movieObj = new Movie(movie.title, movie.overview)
+      return movieObj
+    })
+    res.status(200).send(data)
   } catch(err) {
     console.log('error info: ', err)
   }
