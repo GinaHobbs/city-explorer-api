@@ -54,3 +54,10 @@ app.get('/movies', async (req,res) => {
     console.log('error info: ', err)
   }
 })
+
+//Taken from demo code
+app.get('*', notFoundHandler);
+
+function notFoundHandler(req, res) {
+  res.status(404).send('404: route not found');
+}
