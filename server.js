@@ -21,7 +21,7 @@ app.get('/weather', async (req, res) => {
   const lat = req.query.lat;
   const lon = req.query.lon;
   const searchQuery = req.query.searchQuery;
-  const url = `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}&units=I`
+  const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}&units=I`
 
   try {
     const result = await axios.get(url)
