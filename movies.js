@@ -17,8 +17,8 @@ async function getMovies (req,res) {
         let movieObj = new Movie(movie.title, movie.overview);
         return movieObj;
       })
-      res.status(200).send(cache[key].data)
     }
+      res.status(200).send(cache[key].data)
   } catch(err) {
     console.log('error info: ', err);
   }
